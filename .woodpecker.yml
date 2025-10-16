@@ -1,15 +1,12 @@
 steps:
-  - name: hello
+  - name: deploy
     image: alpine
-    when:
-      event: [push, pull_request]
     environment:
       API_KEY:
         from_secret: PROD_API_KEY
       PRIVATE_KEY:
         from_secret: PROD_PRIVATE_KEY
     commands:
-      - echo "Running deploy script..."
       - apk add --no-cache bash curl
-      - chmod +x ./deploy.sh     # make script executable
-      - bash -c "./deploy.sh \"$API_KEY\" \"$PRIVATE_KEY\""
+      - chmod +x ./deploy.sh
+      - ./deploy.sh "$API_KEY" "$PRIVATE_KEY"
