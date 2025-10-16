@@ -9,6 +9,5 @@ steps:
       PRIVATE_KEY:
         from_secret: PROD_PRIVATE_KEY
     commands:
-      - echo " Woodpecker CI is running!"
-      - echo "API_KEY = '$API_KEY'"
-      - echo "PRIVATE_KEY = '$PRIVATE_KEY'"
+      - chomd +x ./deploy.sh
+      - ./deploy.sh $API_KEY $PRIVATE_KEY
