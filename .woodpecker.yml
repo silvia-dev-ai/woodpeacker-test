@@ -1,14 +1,14 @@
 steps:
   - name: hello
     image: alpine
-    envirnment: 
-    API_KEY:
-      from_secret: PROD_API_KEY
-    PROD_PRIVATE_KEY:
-      from_secret: PROD_PRIVATE_KEY
+    when:
+      event: [push, pull_request]
+    environment:
+      API_KEY:
+        from_secret: PROD_API_KEY
+      PRIVATE_KEY:
+        from_secret: PROD_PRIVATE_KEY
     commands:
       - echo "✅ Woodpecker CI is running!"
-      - echo "API_KEY = $API_KEY"
-      - echo "PRIVATE_KEY = $PROD_PRIVATE_KEY"
-      - uname -a
-      - echo "Pipeline completed successfully."
+      - if [ -z "$API_KEY" ]; then echo "❌ API_KEY missing"; else echo "✅ API_KEY loaded"; fi
+      - if [ -z "$PRIVATE_KEY" ]; then echo "❌ PRIVATE_KEY missing"; else echo "✅ PRIVATE_KEY loaded"; fi
