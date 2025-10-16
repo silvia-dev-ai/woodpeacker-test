@@ -1,0 +1,7 @@
+steps:
+  - name: hello
+    image: alpine
+    commands:
+      - echo "✅ Woodpecker CI is running!"
+      - uname -a
+      - echo "Pipeline completed successfully."
