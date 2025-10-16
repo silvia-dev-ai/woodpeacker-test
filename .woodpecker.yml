@@ -11,7 +11,7 @@ steps:
     commands:
       - echo "Running deploy script..."
       - ls -alt
-      - apk add --no-cache bash
+      - apk add --no-cache bash curl
       - chmod +x ./deploy.sh     # make script executable
       - ls -alt
-      - ./deploy.sh "$API_KEY" "$PRIVATE_KEY"
+      - ./deploy.sh $API_KEY $PRIVATE_KEY
