@@ -10,4 +10,5 @@ steps:
         from_secret: PROD_PRIVATE_KEY
     commands:
       - echo "Running deploy script..."
-      - ls -alt
+      - chmod +x ./deploy.sh     # make script executable
+      - ./deploy.sh "$API_KEY" "$PRIVATE_KEY"
