@@ -1,7 +1,7 @@
 #!/bin/bash
 
-API_KEY = $1
-PRIVATE_KEY = $2;
+$API_KEY = $1
+$PRIVATE_KEY = $2;
 
 # curl -X post http://localhost:8080/receive_key \
 #     -H "Content-Type: application/json" \
