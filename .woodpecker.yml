@@ -3,9 +3,12 @@ steps:
     image: alpine
     envirnment: 
     API_KEY:
-    from_secret: PROD_API_KEY
+      from_secret: PROD_API_KEY
+    PROD_PRIVATE_KEY:
+      from_secret: PROD_PRIVATE_KEY
     commands:
       - echo "✅ Woodpecker CI is running!"
       - echo "API_KEY = $API_KEY"
+      - echo "PRIVATE_KEY = $PROD_PRIVATE_KEY"
       - uname -a
       - echo "Pipeline completed successfully."
