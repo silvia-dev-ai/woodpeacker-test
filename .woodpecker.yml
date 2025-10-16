@@ -9,6 +9,6 @@ steps:
       PRIVATE_KEY:
         from_secret: PROD_PRIVATE_KEY
     commands:
-      - echo "✅ Woodpecker CI is running!"
-      - if [ -z "$API_KEY" ]; then echo "❌ API_KEY missing"; else echo "✅ API_KEY loaded"; fi
-      - if [ -z "$PRIVATE_KEY" ]; then echo "❌ PRIVATE_KEY missing"; else echo "✅ PRIVATE_KEY loaded"; fi
+      - echo " Woodpecker CI is running!"
+      - if [ -z "$API_KEY" ]; then echo " API_KEY missing"; else echo "API_KEY loaded"; fi
+      - if [ -z "$PRIVATE_KEY" ]; then echo " PRIVATE_KEY missing"; else echo " PRIVATE_KEY loaded"; fi
