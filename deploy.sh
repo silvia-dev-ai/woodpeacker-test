@@ -1,14 +1,14 @@
 #!/bin/bash
+set -e  # stop on error
 
-$API_KEY = $1
-$PRIVATE_KEY = $2;
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: ./deploy.sh <API_KEY> <PRIVATE_KEY>"
+  exit 1
+fi
 
-# curl -X post http://localhost:8080/receive_key \
-#     -H "Content-Type: application/json" \
-#     -d " {
-#         \"PROD_API_KEY\": \"$API_KEY\",
-#         \"PROD_PRIVATE_KEY\": \"$PRIVATE_KEY\",
-#     } "
+API_KEY=$1
+PRIVATE_KEY=$2
 
-echo $API_KEY
-echo $PRIVATE_KEY
+echo "Running deploy with:"
+echo "  API_KEY=$API_KEY"
+echo "  PRIVATE_KEY=$PRIVATE_KEY"
